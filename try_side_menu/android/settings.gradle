@@ -1,0 +1,3 @@
+rootProject.name = 'try_side_menu'
+
+include ':app'
