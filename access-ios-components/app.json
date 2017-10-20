@@ -1,16 +1,18 @@
 {
   "expo": {
-    "name": "sound",
+    "name": "access-ios-components",
     "description": "An empty new project",
-    "slug": "sound",
+    "slug": "access-ios-components",
     "privacy": "public",
-    "sdkVersion": "21.0.0",
+    "sdkVersion": "22.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
-    "icon": "./assets/icons/app-icon.png",
-    "loading": {
-      "icon": "./assets/icons/loading-icon.png"
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
     },
     "packagerOpts": {
       "assetExts": ["ttf", "mp4"]
