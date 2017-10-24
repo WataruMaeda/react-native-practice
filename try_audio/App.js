@@ -46,11 +46,11 @@ export default class App extends Component {
         <FlatList
         data={items}
         keyExtractor={item=>item.image}
-        renderItem={({item})=>
-        <Image 
-        source={item.image}
-        style={{width: DEVICE_WIDTH, height: 400}} />
-        }
+        renderItem={({item})=>(
+          <Image 
+          source={item.image}
+          style={{width: DEVICE_WIDTH, height: 120}}></Image>
+        )}
         />
       </View>
     );
