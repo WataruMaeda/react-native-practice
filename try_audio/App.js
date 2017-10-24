@@ -11,7 +11,7 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
+  ImageBackground,
   FlatList
 } from 'react-native';
 
@@ -53,7 +53,7 @@ const items = [
 
 const { width: DEVICE_WIDTH, height: DEVICE_HEIGHT } = Dimensions.get('window');
 
-export default class App extends Component {  
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -61,9 +61,11 @@ export default class App extends Component {
         data={items}
         keyExtractor={item=>item.image}
         renderItem={({item})=>(
-          <Image 
+          <ImageBackground
           source={item.image}
-          style={{width: DEVICE_WIDTH, height: 150}}></Image>
+          style={{width: DEVICE_WIDTH, height: 150}}>
+            <Text style={[styles.cell_text]}>{item.title}</Text>
+          </ImageBackground>
         )}
         />
       </View>
@@ -78,14 +80,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  cell_text: {
+    height: '100%',
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: 'white',
+    fontStyle: 'italic',
+    fontFamily: 'Baskerville',
+    backgroundColor: 'transparent',
+    textAlign: 'center'
+  }
 });
