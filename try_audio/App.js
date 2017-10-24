@@ -6,33 +6,52 @@
 
 import React, { Component } from 'react';
 import {
+  Dimensions,
   Platform,
   StyleSheet,
   Text,
   View,
-  Image
+  Image,
+  FlatList
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+class Item {
+  constructor(title, image) {
+    this.title = title;
+    this.image = image;
+  }
+}
 
-export default class App extends Component {
+const items = [
+  new Item (
+    'People',
+    require('./assets/images/ppl.jpg')
+  ),
+  new Item (
+    'Fire',
+    require('./assets/images/fire.jpg')
+  ),
+  new Item (
+    'Child',
+    require('./assets/images/child.jpg')
+  )
+]
+
+const { width: DEVICE_WIDTH, height: DEVICE_HEIGHT } = Dimensions.get('window');
+
+export default class App extends Component {  
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <FlatList
+        data={items}
+        keyExtractor={item=>item.image}
+        renderItem={({item})=>
+        <Image 
+        source={item.image}
+        style={{width: DEVICE_WIDTH, height: 400}} />
+        }
+        />
       </View>
     );
   }
