@@ -16,24 +16,38 @@ import {
 } from 'react-native';
 
 class Item {
-  constructor(title, image) {
+  constructor(title, image, sound) {
     this.title = title;
     this.image = image;
+    this.sound = sound;
   }
 }
 
 const items = [
   new Item (
-    'People',
-    require('./assets/images/ppl.jpg')
+    'March',
+    require('./assets/images/march.jpg'),
+    require('./assets/sounds/march.mp3')
   ),
   new Item (
-    'Fire',
-    require('./assets/images/fire.jpg')
+    'Mist',
+    require('./assets/images/mist.jpg'),
+    require('./assets/sounds/mist.mp3')
   ),
   new Item (
-    'Child',
-    require('./assets/images/child.jpg')
+    'Piano Man',
+    require('./assets/images/pianoman.jpg'),
+    require('./assets/sounds/pianoman.mp3')
+  ),
+  new Item (
+    'Shopping',
+    require('./assets/images/shop.jpg'),
+    require('./assets/sounds/shop.mp3')
+  ),
+  new Item (
+    'Starts',
+    require('./assets/images/star.jpg'),
+    require('./assets/sounds/star.mp3')
   )
 ]
 
@@ -49,7 +63,7 @@ export default class App extends Component {
         renderItem={({item})=>(
           <Image 
           source={item.image}
-          style={{width: DEVICE_WIDTH, height: 120}}></Image>
+          style={{width: DEVICE_WIDTH, height: 150}}></Image>
         )}
         />
       </View>
