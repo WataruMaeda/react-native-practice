@@ -55,28 +55,34 @@ const items = [
 const { width: DEVICE_WIDTH, height: DEVICE_HEIGHT } = Dimensions.get('window');
 
 export default class App extends Component {
+
+  _keyExtractor = (item, index) => item.title;
+
+
   render() {
     return (
       <View style={styles.container}>
         <FlatList
         data={items}
-        keyExtractor={item=>item.image}
-        renderItem={({item})=>(
-          <TouchableOpacity onPress={() => this.tappedRow({item})}>
-            <ImageBackground
-            source={item.image}
-            style={{width: DEVICE_WIDTH, height: 150}}>
-              <Text style={styles.cell_text}>{item.title}</Text>
-            </ImageBackground>
-          </TouchableOpacity>
-        )}
+        keyExtractor={this._keyExtractor}
+        renderItem={this._renderRow}
         />
       </View>
     );
   }
 
-  tappedRow(item) {
-    console.log(item.item.title);
+  _renderRow = ({item}) => (
+    <TouchableOpacity onPress={() => this.tappedRow({item})}>
+      <ImageBackground
+      source={item.image}
+      style={{width: DEVICE_WIDTH, height: 150}}>
+        <Text style={styles.cell_text}>{item.title}</Text>
+      </ImageBackground>
+    </TouchableOpacity>
+  );
+
+  tappedRow({item}) {
+    console.log(item.title);
   }
 }
 
