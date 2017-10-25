@@ -73,7 +73,7 @@ export default class AudioListScreen extends React.Component {
     <TouchableOpacity onPress={() => this.tappedRow({item})}>
       <ImageBackground
       source={item.image}
-      style={{width: DEVICE_WIDTH, height: 150}}>
+      style={styles.cell_background_image}>
         <Text style={styles.cell_text}>{item.title}</Text>
       </ImageBackground>
     </TouchableOpacity>
@@ -91,14 +91,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  cell_background_image: {
+    width: DEVICE_WIDTH,
+    height: 150,
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   cell_text: {
-    height: '100%',
     fontSize: 30,
     fontWeight: 'bold',
     color: 'white',
     fontStyle: 'italic',
     fontFamily: 'Baskerville',
     backgroundColor: 'transparent',
-    textAlign: 'center'
+    alignItems: 'center',
   }
 });
