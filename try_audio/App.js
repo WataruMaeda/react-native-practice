@@ -12,7 +12,8 @@ import {
   Text,
   View,
   ImageBackground,
-  FlatList
+  FlatList,
+  TouchableOpacity
 } from 'react-native';
 
 class Item {
@@ -61,15 +62,21 @@ export default class App extends Component {
         data={items}
         keyExtractor={item=>item.image}
         renderItem={({item})=>(
-          <ImageBackground
-          source={item.image}
-          style={{width: DEVICE_WIDTH, height: 150}}>
-            <Text style={[styles.cell_text]}>{item.title}</Text>
-          </ImageBackground>
+          <TouchableOpacity onPress={() => this.tappedRow({item})}>
+            <ImageBackground
+            source={item.image}
+            style={{width: DEVICE_WIDTH, height: 150}}>
+              <Text style={styles.cell_text}>{item.title}</Text>
+            </ImageBackground>
+          </TouchableOpacity>
         )}
         />
       </View>
     );
+  }
+
+  tappedRow(item) {
+    console.log(item.item.title);
   }
 }
 
