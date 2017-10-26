@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
-import AudioListScreen from './AudioListScreen';
+import AudioListScreen from './app/screens/AudioListScreen';
 
 const App = StackNavigator({
   AudioList: { screen: AudioListScreen }
