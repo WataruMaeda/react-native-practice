@@ -1,11 +1,12 @@
 
 import React, { Component } from 'react';
 import { TextInput, View, Text, StyleSheet, Button, Alert } from 'react-native';
-import { connect } from 'react-redux';
-import { mapStateToProps, mapDispatchToProps } from '../action';
 import { styles } from '../style';
 
-export class Home extends Component {
+import { connect } from 'react-redux';
+import { mapStateToProps, mapDispatchToProps } from '../action';
+
+class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -14,9 +15,9 @@ export class Home extends Component {
           onChangeText={(text) => this.props.updateAlertMessage(text)}
           value={ this.props.alert_message } />
         <Button 
-          style={styles.button_text}
+          style={ styles.button_text }
           title={ this.props.alert_message }
-          onPress={this._tappedAlert.bind(this) }
+          onPress={ this._tappedAlert.bind(this) }
         />
         <Button
           style={styles.button_text}
@@ -32,7 +33,8 @@ export class Home extends Component {
   }
 
   _tappedButton(e) {
-    
+    const { navigate } = this.props.navigation;
+    navigate('Details');
   }
 }
 
