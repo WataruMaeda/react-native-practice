@@ -6,10 +6,19 @@
 
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
-import AudioListScreen from './app/screens/AudioListScreen';
+import AudioList from './src/screens/AudioListScreen';
+import Audio from './src/screens/AudioScreen';
 
-const App = StackNavigator({
-  AudioList: { screen: AudioListScreen }
+const Navigation = StackNavigator({
+  AudioList: { screen: AudioList },
+  Audio: { screen: Audio }
 });
 
-export default App;
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <Navigation/ >
+    );
+  }
+}
