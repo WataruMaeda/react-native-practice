@@ -1,25 +1,20 @@
 
 import React, { Component } from 'react';
 import { TextInput, View, Text, StyleSheet, Button, Alert } from 'react-native';
+import { connect } from 'react-redux';
+import { mapStateToProps, mapDispatchToProps } from '../action';
 
-export default class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      alert_message: 'hello'
-    }
-  }
-
+export class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
         <TextInput
           style={{height: 40, width:300, borderColor: 'gray', borderWidth: 1}}
-          onChangeText={(text) => this.setState({alert_message: text})}
-          value={ this.state.alert_message } />
+          onChangeText={(text) => this.props.updateAlertMessage(text)}
+          value={ this.props.alert_message } />
         <Button 
           style={styles.button_text}
-          title={ this.state.alert_message }
+          title={ this.props.alert_message }
           onPress={this._tappedButton.bind(this) }
         />
       </View>
@@ -27,7 +22,7 @@ export default class Home extends Component {
   }
 
   _tappedButton(e) {
-    Alert.alert(this.state.alert_message);
+    Alert.alert(this.props.alert_message);
   }
 }
 
@@ -48,3 +43,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   }
 });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
