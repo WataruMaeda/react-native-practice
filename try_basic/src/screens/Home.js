@@ -21,8 +21,13 @@ class Home extends Component {
         />
         <Button
           style={styles.button_text}
-          title='NEXT SCREEN'
+          title='Navigation->'
           onPress={this._tappedButton.bind(this)}
+        />
+        <Button
+          style={styles.button_text}
+          title='API->'
+          onPress={this._tappedAPIButton.bind(this)}
         />
       </View>
     );
@@ -35,6 +40,11 @@ class Home extends Component {
   _tappedButton(e) {
     const { navigate } = this.props.navigation;
     navigate('Details');
+  }
+
+  _tappedAPIButton(e) {
+    const { navigate } = this.props.navigation;
+    navigate('API');
   }
 }
 

@@ -6,10 +6,12 @@ import { StackNavigator } from 'react-navigation';
 
 import Home from './src/screens/Home';
 import Details from './src/screens/Details';
+import API from './src/screens/API';
 
 const Navigator = StackNavigator({
   Home: {screen: Home},
-  Details: {screen: Details}
+  Details: {screen: Details},
+  API: {screen: API }
 });
 
 export default class App extends React.Component {
