@@ -16,14 +16,23 @@ export class Home extends Component {
         <Button 
           style={styles.button_text}
           title={ this.props.alert_message }
-          onPress={this._tappedButton.bind(this) }
+          onPress={this._tappedAlert.bind(this) }
+        />
+        <Button
+          style={styles.button_text}
+          title='NEXT SCREEN'
+          onPress={this._tappedButton.bind(this)}
         />
       </View>
     );
   }
 
-  _tappedButton(e) {
+  _tappedAlert(e) {
     Alert.alert(this.props.alert_message);
+  }
+
+  _tappedButton(e) {
+    
   }
 }
 
