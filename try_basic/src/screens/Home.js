@@ -1,22 +1,33 @@
 
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button, Alert } from 'react-native';
+import { TextInput, View, Text, StyleSheet, Button, Alert } from 'react-native';
 
 export default class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      alert_message: 'hello'
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
+        <TextInput
+          style={{height: 40, width:300, borderColor: 'gray', borderWidth: 1}}
+          onChangeText={(text) => this.setState({alert_message: text})}
+          value={ this.state.alert_message } />
         <Button 
           style={styles.button_text}
-          title='Show Alert'
-          onPress={this._tappedButton}
+          title={ this.state.alert_message }
+          onPress={this._tappedButton.bind(this) }
         />
       </View>
     );
   }
 
-  _tappedButton() {
-    Alert.alert('Tapped');
+  _tappedButton(e) {
+    Alert.alert(this.state.alert_message);
   }
 }
 
