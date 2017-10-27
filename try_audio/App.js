@@ -14,7 +14,6 @@ const Navigation = StackNavigator({
   Audio: { screen: Audio }
 });
 
-
 export default class App extends React.Component {
   render() {
     return (
