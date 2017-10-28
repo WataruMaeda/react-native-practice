@@ -1,14 +1,13 @@
 const initialState = {
-    item: { title: "", image: "", mp3: "" }
+    selectedItem: { title: "", image: "", sound: "" }
   }
   
   export default function reducer(state = initialState, action) {
     switch(action.type) {
-  
-      case 'HELLO_WORLD':
+      case 'SELECTED_ITEM':
         return {
           ...state,
-          hello: action.hello
+          selectedItem: action.selectedItem
         };
   
       default:

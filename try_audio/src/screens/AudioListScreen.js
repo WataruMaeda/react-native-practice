@@ -8,11 +8,12 @@ import {
   FlatList,
   TouchableOpacity
 } from 'react-native';
-import { Icon, DEVICE_HEIGHT, DEVICE_WIDTH, NAVI_BUTTON_RIGHT } from '../model/Icon';
 import { items } from '../model/Item';
 import { styles } from '../screens/style';
+import { connect } from 'react-redux';
+import { mapStateToProps, mapDispatchToProps } from '../action';
 
-export default class AudioListScreen extends React.Component {
+class AudioListScreen extends React.Component {
   _keyExtractor = (item, index) => item.title;
 
   static navigationOptions = {
@@ -42,8 +43,10 @@ export default class AudioListScreen extends React.Component {
   );
 
   _tappedRow({item}) {
-    console.log(item.title);
+    this.props.updateSelectedItem(item);
     const { navigate } = this.props.navigation;
     navigate('Audio');
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(AudioListScreen);

@@ -4,8 +4,8 @@ export function mapStateToProps(state) {
   
   export function mapDispatchToProps(dispatch) {
     return {
-      updateHello: (text) => {
-        dispatch( {type: 'HELLO_WORLD', hello: text} );
+      updateSelectedItem: (item) => {
+        dispatch( {type: 'SELECTED_ITEM', selectedItem: item} );
       }
     }
   }
