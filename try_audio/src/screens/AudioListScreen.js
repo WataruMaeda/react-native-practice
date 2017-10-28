@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Text,
   View,
+  Button,
   Image,
   ImageBackground,
   FlatList,
@@ -15,17 +16,16 @@ export default class AudioListScreen extends React.Component {
   _keyExtractor = (item, index) => item.title;
 
   static navigationOptions = {
-    title: (<Text style={styles.naviagtion_title}>Audio List</Text>)
+    title: 'Audio List'
   };
 
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <FlatList
         data={items}
         keyExtractor={this._keyExtractor}
-        renderItem={this._renderRow.bind(this)}
+        renderItem={this._renderRow}
         />
       </View>
     );
@@ -43,5 +43,7 @@ export default class AudioListScreen extends React.Component {
 
   _tappedRow({item}) {
     console.log(item.title);
+    const { navigate } = this.props.navigation;
+    navigate('Audio');
   }
 }

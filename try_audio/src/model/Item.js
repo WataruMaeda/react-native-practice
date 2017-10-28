@@ -1,6 +1,6 @@
 import { Image } from 'react-native';
 
-export class Item {
+class Item {
     constructor(title, image, sound) {
       this.title = title;
       this.image = image;
