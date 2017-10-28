@@ -16,10 +16,6 @@ import { mapStateToProps, mapDispatchToProps } from '../action';
 class AudioListScreen extends React.Component {
   _keyExtractor = (item, index) => item.title;
 
-  static navigationOptions = {
-    title: 'Audio List'
-  };
-
   render() {
     return (
       <View style={styles.container}>

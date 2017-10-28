@@ -16,8 +16,18 @@ import Audio from './src/screens/AudioScreen';
 import { store } from './src/store';
 
 const Navigation = StackNavigator({
-  AudioList: { screen: AudioList },
-  Audio: { screen: Audio }
+  AudioList: { 
+    screen: AudioList,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Audio List'
+    }),
+  },
+  Audio: { 
+    screen: Audio,
+    navigationOptions: ({ navigation }) => ({
+      title: `Audio`
+    }),
+  }
 });
 
 export default class App extends React.Component {

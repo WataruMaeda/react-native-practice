@@ -2,7 +2,7 @@ import {
     StyleSheet
   } from 'react-native';
 
-import { Icon, DEVICE_HEIGHT, DEVICE_WIDTH, NAVI_BUTTON_RIGHT } from '../model/Icon';
+import { DEVICE_HEIGHT, DEVICE_WIDTH } from '../model/Icon';
 import { items } from '../model/Item';
 
 export const styles = StyleSheet.create({
@@ -18,11 +18,11 @@ export const styles = StyleSheet.create({
       fontStyle: 'italic',
       fontFamily: 'Baskerville'
     },
-    navigation_button: {
-      width: NAVI_BUTTON_RIGHT.width,
-      height: NAVI_BUTTON_RIGHT.height,
-      marginLeft: 20,
-      marginBottom: 10
+    background_image: {
+      width: DEVICE_WIDTH,
+      height: DEVICE_HEIGHT,
+      justifyContent: 'center',
+      alignItems: 'center',
     },
     cell_background_image: {
       width: DEVICE_WIDTH,
