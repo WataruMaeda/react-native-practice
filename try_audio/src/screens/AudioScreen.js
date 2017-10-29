@@ -26,6 +26,11 @@ class Audio extends React.Component {
         });
     }
 
+    componentWillUnmount() {
+        this.sound.stop();
+        this.sound.release();
+    }
+
     render() {
         return (
             <View style={styles.container}>
