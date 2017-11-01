@@ -22,12 +22,12 @@ export const styles = StyleSheet.create({
   },
   cell_background_image: {
     width: DEVICE_WIDTH,
-    height: 200,
+    height: DEVICE_HEIGHT,
     justifyContent: 'center',
     alignItems: 'center',
   },
   cell_text: {
-    fontSize: 30,
+    fontSize: 50,
     fontWeight: 'bold',
     color: 'white',
     fontStyle: 'italic',

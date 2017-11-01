@@ -1,4 +1,3 @@
-
 class Item {
   constructor(title, image) {
     this.title = title;

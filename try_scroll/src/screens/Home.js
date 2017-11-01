@@ -6,27 +6,15 @@ import { items } from '../models/model';
 
 const image = require('../assets/icons/menu.png');
 
-export default class SideMenu extends React.Component {
+export default class Home extends React.Component {
   _keyExtractor = (item, index) => item.title;
-
-  static  navigationOptions = {
-    title: 'Home',
-    headerLeft: (
-      <TouchableOpacity onPress={()=>this._tappedMenu}>
-        <Image source={image} style={{width: 24, height: 24, margin: 10}}/>
-      </TouchableOpacity>
-    )
-  }
-
-  _tappedMenu() {
-    
-  }
 
   render() {
     return (
       <View style={styles.container}>
         <FlatList
           horizontal
+          pagingEnabled
           data={items}
           keyExtractor={this._keyExtractor}
           renderItem={this._renderRow}
@@ -35,7 +23,11 @@ export default class SideMenu extends React.Component {
     );
   }
 
-  _renderRow = ({item}) => {
-    <Text style={styles.container}>{item.title}</Text>
-  }
+  _renderRow = ({item}) => (
+    <ImageBackground
+      style={styles.cell_background_image}
+      source={{uri: item.image}}>
+      <Text style={styles.cell_text}>{item.title}</Text>
+    </ImageBackground>
+  );
 }
