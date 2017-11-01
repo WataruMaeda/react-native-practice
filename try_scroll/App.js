@@ -5,28 +5,17 @@
  */
 
 import React from 'react';
+import { TouchableOpacity, Image } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-
 import { Provider } from 'react-redux';
 import { mapStateToProps, mapDispatchToProps } from './src/action';
-
-import XXX_1 from './src/screens/XXX_1';
-import XXX_2 from './src/screens/XXX_2';
-
 import { store } from './src/store';
 
+import Home from './src/screens/Home';
+
 const Navigation = StackNavigator({
-  XXX_1: { 
-    screen: XXX_1,
-    navigationOptions: ({ navigation }) => ({
-      title: 'XXX_1'
-    }),
-  },
-  XXX_2: { 
-    screen: XXX_2,
-    navigationOptions: ({ navigation }) => ({
-      title: `XXX_2`
-    }),
+  Home: { 
+    screen: Home
   }
 });
 
