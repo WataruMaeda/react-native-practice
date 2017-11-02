@@ -1,5 +1,7 @@
 
 import React from 'react';
+
+// Components
 import { View, Text, FlatList, ImageBackground, Image, TouchableOpacity } from 'react-native'
 import { styles } from './style';
 import { items } from '../models/model';
@@ -40,7 +42,8 @@ class Home extends React.Component {
   );
 
   _tappedRow(item) {
-    console.log(item.title);
+    console.log(this.props.selectedItem);
+    this.props.updateSelectedItem(item);
   }
 }
 

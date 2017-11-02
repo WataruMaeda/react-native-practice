@@ -1,5 +1,5 @@
 const initialState = {
-    selectedItem: { title: "", image: "", sound: "" }
+    selectedItem: {title: "", image: ""}
 }
   
 export default function reducer(state = initialState, action) {
