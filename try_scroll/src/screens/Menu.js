@@ -4,7 +4,7 @@ import { View, Text, FlatList, ImageBackground } from 'react-native'
 import { styles } from './style';
 import { items } from '../models/model';
 
-export default class SideMenu extends React.Component {
+export default class Menu extends React.Component {
   _keyExtractor = (item, index) => item.title;
   render() {
     return (
