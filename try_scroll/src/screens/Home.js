@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Components
-import { View, Text, FlatList, ImageBackground, Image, TouchableOpacity } from 'react-native'
+import { View, Text, FlatList, ImageBackground, Image, TouchableOpacity, Button } from 'react-native'
 import { styles } from './style';
 import { items } from '../models/model';
 
@@ -10,26 +10,51 @@ import { items } from '../models/model';
 import { connect } from 'react-redux';
 import { mapStateToProps, mapDispatchToProps } from '../action';
 
-// Side Menu
+// Drawer
 import SideMenu from 'react-native-side-menu';
-import Menu from './Menu';
+import Drawer from './Drawer';
+
+// Const
+const image = require('../assets/icons/menu.png');
 
 class Home extends React.Component {
   _keyExtractor = (item, index) => item.title;
+
+  componentDidMount() {
+    this.props.updateSelectedItem(items[0]);
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <FlatList
-          horizontal
-          pagingEnabled
-          data={items}
-          keyExtractor={this._keyExtractor}
-          renderItem={this._renderRow}
-        />
-      </View>
+      <SideMenu
+        menu={<Drawer/>}
+        isOpen={this.props.drawerState.isOpen}
+        onChange={isOpen => this._changedDrawerState(isOpen)}>
+        <View style={styles.container}>
+          <Button title={'Show Menu'} onPress={()=>this._toggleDrawer()}/>
+          <FlatList
+            horizontal
+            pagingEnabled
+            data={items}
+            keyExtractor={this._keyExtractor}
+            renderItem={this._renderRow}
+          />
+        </View>
+      </SideMenu>
     );
   }
 
+  /* Drawer functions */
+  _toggleDrawer = () => {
+    let drState = {isOpen: !this.props.drawerState.isOpen, selectedItem: ''};
+    this.props.updateDrawerState(drState);
+  }
+
+  _changedDrawerState(isOpen) {
+    console.log(isOpen);
+  }
+
+  /* Flat List funcs */
   _renderRow = ({item}) => (
     <TouchableOpacity
       onPress={()=>this._tappedRow(item)}>
@@ -42,7 +67,6 @@ class Home extends React.Component {
   );
 
   _tappedRow(item) {
-    console.log(this.props.selectedItem);
     this.props.updateSelectedItem(item);
   }
 }

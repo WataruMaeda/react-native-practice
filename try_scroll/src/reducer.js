@@ -1,5 +1,6 @@
 const initialState = {
-    selectedItem: {title: "", image: ""}
+    selectedItem: {title: "", image: ""},
+    drawerState: {isOpen: false, selectedItem: ''},
 }
   
 export default function reducer(state = initialState, action) {
@@ -8,6 +9,11 @@ export default function reducer(state = initialState, action) {
         return {
           ...state,
           selectedItem: action.selectedItem
+        };
+      case 'DRAWER_STATE':
+        return {
+          ...state,
+          drawerState: action.drawerState
         };
   
       default:
