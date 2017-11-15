@@ -1,0 +1,3 @@
+rootProject.name = 'try_image_picker'
+
+include ':app'
