@@ -15,7 +15,24 @@ import {
   Button
 } from 'react-native';
 
+// Model
+class Name {
+  constructor(first, last) {
+    this.first = first;
+    this.last = last;
+  }
+}
+
 export default class App extends Component {
+  constructor() {
+    super();
+    this.name = new Name('', '');
+    this.state = {
+      first_name: this.name.first,
+      last_name: this.name.last
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -25,13 +42,18 @@ export default class App extends Component {
         <TextInput
           placeholder="First Name"
           style={{fontSize: 20, margin: 8}}
+          title={this.state.last_name}
           onChangeText={this._updateFirstName}
           />
         <TextInput
           placeholder="Last Name"
           style={{fontSize: 20, margin: 8}}
+          title={this.state.last_name}
           onChangeText={this._updateLastName}
           />
+        <Text style={styles.welcome}>
+        Your Full Name is .. {this.state.first_name + this.state.last_name}
+        </Text>
         <Button title="Tap to Save" onPress={this._pressedSave}/>
       </View>
     );
@@ -39,11 +61,15 @@ export default class App extends Component {
 
   // Actions
   _updateFirstName = (text) => {
-    console.log(text);
+    this.name.first = text;
+    this.setState({first_name: this.name.first});
+    console.log(this.name.first);
   }
 
   _updateLastName = (text) => {
-    console.log(text);
+    this.name.last = text;
+    this.setState({last_name: this.name.last});
+    console.log(this.name.last);
   }
 
   _pressedSave() {
