@@ -12,14 +12,33 @@ import {
   View,
   AsyncStorage,
   TextInput,
-  Button
+  Button,
+  Alert
 } from 'react-native';
 
 // Model
+
 class Name {
   constructor(first, last) {
     this.first = first;
     this.last = last;
+  }
+
+  save(callback = (success) => {}) {
+    let jsonString = JSON.stringify(this);
+    console.log('save: Json string is..' + jsonString);
+    AsyncStorage.setItem('@USER_NAME_KEY', jsonString, (error)=>{
+      (error == null) ?
+        callback(true) : callback(false);
+    });
+  }
+
+  get(callback = (success, value) => {}) {
+    AsyncStorage.getItem('@USER_NAME_KEY', (error, value)=> {
+      console.log('get: Saved value is..' + value);
+      (value != null && error == null) ?
+        callback(true, JSON.parse(value)) : callback(false, '');
+    });
   }
 }
 
@@ -54,7 +73,8 @@ export default class App extends Component {
         <Text style={styles.welcome}>
         Your Full Name is .. {this.state.first_name + this.state.last_name}
         </Text>
-        <Button title="Tap to Save" onPress={this._pressedSave}/>
+        <Button title="Tap to Save" onPress={() => this._pressedSave()}/>
+        <Button title="Show stored value " onPress={() => this._pressedShow()}/>
       </View>
     );
   }
@@ -73,7 +93,17 @@ export default class App extends Component {
   }
 
   _pressedSave() {
-    console.log('save');
+    this.name.save((success) => {
+      (success == true) ?
+        Alert.alert('Saved') : Alert.alert('Failed'); 
+    });
+  }
+
+  _pressedShow() {
+    this.name.get((success, value) => {
+      (success) ? 
+        Alert.alert('Full name is ' + value.last + value.first) : Alert.alert('Failed');
+    }); 
   }
 }
 
