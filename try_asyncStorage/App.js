@@ -9,31 +9,45 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  AsyncStorage,
+  TextInput,
+  Button
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-export default class App extends Component<{}> {
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Fill the forms
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <TextInput
+          placeholder="First Name"
+          style={{fontSize: 20, margin: 8}}
+          onChangeText={this._updateFirstName}
+          />
+        <TextInput
+          placeholder="Last Name"
+          style={{fontSize: 20, margin: 8}}
+          onChangeText={this._updateLastName}
+          />
+        <Button title="Tap to Save" onPress={this._pressedSave}/>
       </View>
     );
+  }
+
+  // Actions
+  _updateFirstName = (text) => {
+    console.log(text);
+  }
+
+  _updateLastName = (text) => {
+    console.log(text);
+  }
+
+  _pressedSave() {
+    console.log('save');
   }
 }
 
@@ -47,7 +61,7 @@ const styles = StyleSheet.create({
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 10
   },
   instructions: {
     textAlign: 'center',
