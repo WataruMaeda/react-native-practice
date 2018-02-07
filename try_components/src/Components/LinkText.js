@@ -5,7 +5,7 @@ class LinkText extends Component {
   render() {
     return (
       <View>
-        <TouchableOpacity onPress={()=> this.props.onPress()}>
+        <TouchableOpacity onPress={()=>this.props.onPress()}>
           <Text> {this.props.text} </Text>
         </TouchableOpacity>
       </View>
