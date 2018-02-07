@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Text, View, Image, StyleSheet } from 'react-native'
 
 const SquireImage = (props) => {
-    const { url } = props;
+    const { url, hello } = props;
+    console.log(props);
     const { container, image } = styles;
-    console.log(url);
     return (
         <View style={container}>
             <Image style={image} source={{url: url}}/>
