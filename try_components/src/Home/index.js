@@ -12,7 +12,7 @@ export default class Home extends Component {
         <Text> Hello react home! </Text>
         <SquireImage url='https://cdn.pixabay.com/photo/2018/02/02/22/28/nature-3126513_960_720.jpg' hello='aaaa'/>
         <TestText param1='Hello' param2='World'/>
-        <LinkText text='Touch the line'/>
+        <LinkText text='Touch the line' onPress={ () => Alert.alert('Hello') }/>
       </View>
     )
   }
