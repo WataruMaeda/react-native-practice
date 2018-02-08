@@ -44,8 +44,8 @@ export default StyleSheet.create({
     },
     image: {
         width: 44,
-        resizeMode: 'contain',
         margin: 50,
-        tintColor: 'white'
+        resizeMode: 'contain',
+        tintColor: 'white',
     },
 })
