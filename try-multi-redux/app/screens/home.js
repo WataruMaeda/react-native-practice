@@ -1,14 +1,15 @@
-import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import React, { Component } from 'react';
+import { Text, View, StatusBar } from 'react-native';
+import { Container } from '../components/Container';
 
 class Home extends Component {
   render() {
     return (
-      <View>
+      <Container>
+        <StatusBar translucent={false} barStyle='light-content'/>
         <Text> textInComponent </Text>
-      </View>
+      </Container>
     )
   }
-}
-
+};
 export default Home;

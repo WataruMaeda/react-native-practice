@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import Rooter from './router'
+import React, { Component } from 'react';
+import Rooter from './router';
 
 class App extends Component {
   render() {
@@ -7,6 +7,6 @@ class App extends Component {
         <Rooter />
     );
   }
-}
+};
 
 export default App;
