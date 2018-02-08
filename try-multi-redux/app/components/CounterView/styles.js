@@ -3,13 +3,21 @@ const COUNTER_VIEW_WIDTH = Dimensions.get('window').width - 20
 const COUNTER_VIEW_HEIGHT = Dimensions.get('window').height / 3 - 60
 
 export default StyleSheet.create({
-    counterView: {
+    shadowView: {
+        backgroundColor: 'transparent',
         width: COUNTER_VIEW_WIDTH,
         height: COUNTER_VIEW_HEIGHT,
-        backgroundColor: 'red',
-        borderRadius: 10,
-        overflow: 'hidden',
+        shadowColor: 'darkgray',
+        shadowOffset: { width: 10, height: 10 },
+        shadowOpacity: 1,
+        shadowRadius: 10,
         margin: 10,
+    },
+    counterView: {
+        flex: 1,
+        backgroundColor: 'red',
+        overflow: 'hidden',
+        borderRadius: 10,
     },
     counterTextView: {
         width: COUNTER_VIEW_WIDTH,
