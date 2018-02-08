@@ -15,7 +15,7 @@ export default StyleSheet.create({
     },
     counterView: {
         flex: 1,
-        backgroundColor: 'red',
+        backgroundColor: '#e74b3c',
         overflow: 'hidden',
         borderRadius: 10,
     },
