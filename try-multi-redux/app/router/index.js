@@ -1,7 +1,7 @@
 import { StackNavigator } from 'react-navigation';
 import Home from '../screens/Home';
 
-const Rooter = StackNavigator({
+export default StackNavigator({
     Home: { 
         screen: Home,
         navigationOptions: ({ navigation }) => ({
@@ -11,6 +11,4 @@ const Rooter = StackNavigator({
           headerTitleStyle: { fontSize: 18, },
         }),
       },
-});
-
-export default Rooter;
+})

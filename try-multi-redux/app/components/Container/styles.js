@@ -7,4 +7,4 @@ export default StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#ecf0f1',
     }
-});
+})
