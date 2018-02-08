@@ -1,11 +1,14 @@
-import React from 'react';
-import { Text } from 'react-native';
-import { Container } from '../components/Container';
+import React from 'react'
+import { Text } from 'react-native'
+import { Container } from '../components/Container'
+import { CounterView } from '../components/CounterView'
 
 export default () => {
   return (
     <Container>
-      <Text> textInComponent </Text>
+      <CounterView />
+      <CounterView />
+      <CounterView />
     </Container>
   )
 };
