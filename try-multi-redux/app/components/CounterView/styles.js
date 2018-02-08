@@ -32,5 +32,20 @@ export default StyleSheet.create({
         fontWeight: '700',
         textAlign: 'center',
         fontSize: 60,
-    }
+    },
+    controllerView: {
+        flex: 1,
+        flexDirection: 'row',
+        backgroundColor: 'transparent',
+        width: COUNTER_VIEW_WIDTH,
+        height: COUNTER_VIEW_HEIGHT / 2,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    image: {
+        width: 44,
+        resizeMode: 'contain',
+        margin: 50,
+        tintColor: 'white'
+    },
 })

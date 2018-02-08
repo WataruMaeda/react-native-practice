@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity, Image } from 'react-native'
 import styles from './styles'
 
 export default () => {
@@ -9,7 +9,23 @@ export default () => {
         <View style={styles.counterTextView}>
           <Text style={styles.counterText}>0</Text>
         </View>
+        <View style={styles.controllerView}>
+          <TouchableOpacity onPress={pressedAdd}> 
+            <Image style={styles.image} source={require('./assets/add.png')}/>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={pressedDelete}> 
+          <Image style={styles.image} source={require('./assets/delete.png')}/>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   )
+
+  const pressedAdd = () => {
+
+  }
+
+  const pressedDelete = () => {
+
+  }
 }
