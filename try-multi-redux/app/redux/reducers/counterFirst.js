@@ -1,15 +1,15 @@
 import * as types from '../types'
 
 const initialState = {
-    counter1: 0,
+    number: 0,
 } 
 
 export default (state = initialState, action) => {
     switch(action.type) {
-      case types.COUNTER_1:
+      case types.COUNTER_FIRST:
         return {
           ...state,
-          counter1: action.counter1
+          number: action.number
         };
   
       default:
