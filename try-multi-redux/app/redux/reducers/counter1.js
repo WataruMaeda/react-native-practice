@@ -1,10 +1,10 @@
-import * as types from '../type'
+import * as types from '../types'
 
 const initialState = {
-    counter_1: 0
+    counter1: 0,
 } 
 
-export default function reducer(state = initialState, action) {
+export default (state = initialState, action) => {
     switch(action.type) {
       case types.COUNTER_1:
         return {

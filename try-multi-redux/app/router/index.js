@@ -1,7 +1,11 @@
+import React from 'react'
 import { StackNavigator } from 'react-navigation';
 import Home from '../screens/Home';
 
-export default StackNavigator({
+import { Provider } from 'react-redux';
+import store from '../redux/store';
+
+const Navigation = StackNavigator({
     Home: { 
         screen: Home,
         navigationOptions: ({ navigation }) => ({
@@ -12,3 +16,9 @@ export default StackNavigator({
         }),
       },
 })
+
+export default () => (
+  <Provider store={store}>
+    <Navigation />
+  </Provider>
+)
