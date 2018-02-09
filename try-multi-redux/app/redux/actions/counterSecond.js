@@ -7,10 +7,10 @@ export function mapStateToProps(state) {
 export function mapDispatchToProps(dispatch) {
     return {
         addNumber: (number) => {
-            dispatch( {type: types.COUNTER_2, selectedItem: nubmer + 1} );
+            dispatch( {type: types.COUNTER_SECOND, selectedItem: nubmer + 1} );
         },
         reduceNumber: (number) => {
-            dispatch( {type: types.COUNTER_2, selectedItem: number - 1} );
+            dispatch( {type: types.COUNTER_SECOND, selectedItem: number - 1} );
         },
     }
 }
