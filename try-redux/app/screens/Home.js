@@ -15,9 +15,9 @@ class Home extends React.Component {
         <Text>Name: </Text>
         <TextInput style={styles.textInput} onChangeText={name => this.props.dispatch(updateName(name))} value={name}/>
         <Text>Age: </Text>
-        <TextInput style={styles.textInput} onChangeText={age => this.props.dispatch(updateAge(age))} value={age}/>
+        <TextInput style={styles.textInput} onChangeText={age => this.props.dispatch(updateAge(age))} value={String(age)}/>
         <Text>Phone: </Text>
-        <TextInput style={styles.textInput} onChangeText={phone => this.props.dispatch(updatePhone(phone))} value={phone}/>
+        <TextInput style={styles.textInput} onChangeText={phone => this.props.dispatch(updatePhone(phone))} value={String(phone)}/>
         <Text>Inpit result: { name + " " + age + " " + phone }</Text>
       </View>
     );
