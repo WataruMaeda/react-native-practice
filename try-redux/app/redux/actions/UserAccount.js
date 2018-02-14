@@ -1,19 +1,21 @@
 import * as types from '../types'
 
-export function mapStateToProps(state) {
-    return state;
+const updateName = name => {
+    return dispatch => {
+        dispatch({type: types.SAVE_NAME, payload: name})
+    }
 }
 
-export function mapDispatchToProps(dispatch) {
-    return {
-      updateName: (name) => {
-          dispatch( { type: types.SAVE_NAME, name: name} );
-      },
-      updateAge: (age) => {
-          dispatch({ type: types.SAVE_AGE, age: age })
-      },
-      udpatePhone: (phone) => {
-          dispatch({type: types.SAVW_PHONE, phone: phone })
-      },
+const updateAge = age => {
+    return dispatch => {
+        dispatch({type: types.SAVE_AGE, payload: age})
     }
-  }
+}
+
+const updatePhone = phone => {
+    return dispatch => {
+        dispatch({type: types.SAVE_PHONE, payload: phone})
+    }
+}
+
+export {updateName, updateAge, updatePhone}

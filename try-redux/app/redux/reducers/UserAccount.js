@@ -1,27 +1,27 @@
 import * as types from '../types'
 
 const initialState = {
-    name: '',
-    age: 0,
-    phone: 0,
+    name: 'Input name',
+    age: 20,
+    phone: 7787511656,
 }
 
 export default (state = initialState, action) => {
-    switch(action.types) {
+    switch(action.type) {
         case types.SAVE_NAME:
             return {
                 ...state,
-                name: action.name
+                name: action.payload
             }
         case types.SAVE_AGE:
             return {
                 ...state,
-                age: action.age
+                age: action.payload
             }
-        case types.SAVW_PHONE:
+        case types.SAVE_PHONE:
             return {
                 ...state,
-                phone: action.age
+                phone: action.payload
             }
         default:
             return state

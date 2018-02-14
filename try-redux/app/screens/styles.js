@@ -6,5 +6,12 @@ export default StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-      },
+    },
+    textInput: {
+        height: 40,
+        width: '90%',
+        borderColor: 'gray', 
+        borderWidth: 1,
+        marginVertical: 8,
+    }
 })

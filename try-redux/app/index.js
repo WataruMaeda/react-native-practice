@@ -1,7 +1,9 @@
 import React from 'react';
 import { Provider } from 'react-redux'
-import store from './redux/store'
+import configureStore from './redux/store'
 import Home from './screens/Home'
+
+const store = configureStore()
 
 export default () => (
     <Provider store={store}>
