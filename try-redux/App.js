@@ -1,2 +1,2 @@
-import App from './qpp'
+import App from './app/index'
 export default App
