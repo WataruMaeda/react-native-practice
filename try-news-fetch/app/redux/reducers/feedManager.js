@@ -1,7 +1,7 @@
 import * as types from '../types'
 
 const initialState = {
-    feeds: '',
+    feeds: [],
 }
 
 export default (state = initialState, action) => {
@@ -9,9 +9,9 @@ export default (state = initialState, action) => {
         case types.UPDATE_FEEDS:
         return {
             ...state,
-            feeds: action.payload
+            feeds: [ ...action.payload ]
         }
         default:
-        return state
+            return state
     }
 }

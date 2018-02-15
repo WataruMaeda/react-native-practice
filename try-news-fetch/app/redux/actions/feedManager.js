@@ -1,7 +1,10 @@
 import * as types from '../types'
+import { getFeeds } from '../../utils/api'
 
-export const updateFeeds = feeds => {
+export const updateFeeds = () => {
     return dispatch => {
-        dispatch({type: types.UPDATE_FEEDS, payload: feeds})
+         getFeeds().then(res => {
+            dispatch({type: types.UPDATE_FEEDS, payload: res})
+         })
     }
 }
