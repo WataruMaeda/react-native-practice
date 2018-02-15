@@ -1,3 +1,3 @@
 import React from 'react'
-import Home from './screens/Home'
-export default () => <Home />
+import Home from './screens/home'
+export default Home
