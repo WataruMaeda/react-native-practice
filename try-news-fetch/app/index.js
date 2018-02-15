@@ -1,3 +1,3 @@
 import React from 'react'
-import Home from './screens/home'
-export default () => <Home />
+import Router from './router'
+export default () => <Router />
