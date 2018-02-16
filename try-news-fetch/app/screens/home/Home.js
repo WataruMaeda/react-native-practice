@@ -1,6 +1,9 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, FlatList } from 'react-native';
 import styles from './styles'
+
+// component
+import getFeedCard from '../../components/FeedListItem'
 
 // redux
 import { connect } from 'react-redux'
@@ -15,19 +18,19 @@ class Home extends React.Component {
 
     render() {
         const { feeds } = this.props
-        const renderfeeds = feeds.map((feed, i)=> <View key={i}><Text>{feed.title}</Text></View>)
         return (
-            <View>
-            {renderfeeds}
+            <View style={styles.container}>
+                <FlatList
+                data={feeds}
+                keyExtractor={(feed, index)=>feed.title}
+                renderItem={(feed)=>getFeedCard(feed)}/>
             </View>
         );
-      }
+    }
 }
 
 const mapStateToProps = state => {
-    return {
-        feeds: state.FeedManager.feeds,
-    }
+    return { feeds: state.FeedManager.feeds, }
 }
 
 export default connect(mapStateToProps)(Home)
