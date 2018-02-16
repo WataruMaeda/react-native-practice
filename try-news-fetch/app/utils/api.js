@@ -6,7 +6,6 @@ export const getFeeds = () => {
         .then((responseJson) => {
             return responseJson.articles;
         }).catch((error) => {
-            console.error(error);
             return error
         });
 } 

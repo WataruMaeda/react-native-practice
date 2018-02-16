@@ -1,9 +1,9 @@
 import React from 'react';
-import { Text, View, FlatList } from 'react-native';
+import { Text, View, FlatList, Alert } from 'react-native';
 import styles from './styles'
 
 // component
-import getFeedCard from '../../components/FeedListItem'
+import FeedListItem from '../../components/FeedListItem'
 
 // redux
 import { connect } from 'react-redux'
@@ -11,7 +11,6 @@ import { updateFeeds } from '../../redux/actions/feedManager'
 
 class Home extends React.Component {
     componentWillMount() {
-        console.log(this.props)
         const {dispatch} = this.props
         dispatch(updateFeeds())
     }
@@ -23,10 +22,14 @@ class Home extends React.Component {
                 <FlatList
                 data={feeds}
                 keyExtractor={(feed, index)=>feed.title}
-                renderItem={(feed)=>getFeedCard(feed)}/>
+                renderItem={this.renderRow}/>
             </View>
         );
     }
+
+    renderRow = (feed) => (
+        <FeedListItem feed={feed} onPress={(url)=>{ Alert.alert(url) }}/>
+    )
 }
 
 const mapStateToProps = state => {
