@@ -1,0 +1,1 @@
+export const FEED_STORE = '@FEED_STORE'
