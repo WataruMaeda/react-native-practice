@@ -1,10 +1,9 @@
 import { AsyncStorage } from 'react-native' 
-import * as types from './types'
 
-export const saveTechFeeds = async (feeds) => {
+export const saveFeeds = async (feeds, key) => {
     try {
         let jsonFeeds = JSON.stringify(feeds)
-        const result = await AsyncStorage.setItem(types.TECH_FEED_STORE, jsonFeeds)
+        const result = await AsyncStorage.setItem(key, jsonFeeds)
         result === null ? 
             console.log('Save feeds success!') : 
             console.log('Save feeds failed!', result)
@@ -13,9 +12,9 @@ export const saveTechFeeds = async (feeds) => {
     }
 }
 
-export const getTechFeeds = () => {
+export const getFeeds = (key) => {
     try {
-        const result = AsyncStorage.getItem(types.TECH_FEED_STORE)
+        const result = AsyncStorage.getItem(key)
         if (result !== nul) {
             console.log('get storage feeds success!', result)
             return JSON.parse(result)

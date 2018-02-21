@@ -7,13 +7,13 @@ import FeedListItem from '../../components/FeedListItem'
 
 // redux
 import { connect } from 'react-redux'
-import { updateTechFeeds } from '../../redux/actions/feedManager'
+import { updateTechFeeds, updateAppleFeeds } from '../../redux/actions/feedManager'
 
 class Home extends React.Component {
 
     componentWillMount() {
         const {dispatch} = this.props
-        dispatch(updateTechFeeds())
+        dispatch(updateAppleFeeds())
     }
 
     render() {
