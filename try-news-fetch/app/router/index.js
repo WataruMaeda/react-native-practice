@@ -1,6 +1,9 @@
-import { StackNavigator } from 'react-navigation'
+import React from 'react'
+import { StackNavigator, TabNavigator } from 'react-navigation'
+import { Icon } from 'native-base'
 import Home from '../screens/home'
-export default StackNavigator({
+
+const navigator = StackNavigator({
     Home: { 
         screen: Home,
         navigationOptions: ({ navigation }) => ({
@@ -11,4 +14,15 @@ export default StackNavigator({
           }),
   
     },
+})
+
+export default TabNavigator({
+    Tab: { 
+        screen:  navigator,
+        navigationOptions: {
+            tabBarIcon: <Icon name='ios-contact' />,
+            activeTintColor: 'red'
+        }
+          
+        },
 })

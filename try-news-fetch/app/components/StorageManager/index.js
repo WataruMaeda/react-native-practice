@@ -6,10 +6,10 @@ export const saveFeeds = async (feeds) => {
         let jsonFeeds = JSON.stringify(feeds)
         const result = await AsyncStorage.setItem(types.FEED_STORE, jsonFeeds)
         result === null ? 
-            console.log('Save success!') : 
-            console.log('Save failed!', result)
+            console.log('Save feeds success!') : 
+            console.log('Save feeds failed!', result)
     } catch(error) {
-        console.log(error)
+        console.log('save feeds failed!', error)
     }
 }
 
@@ -17,10 +17,10 @@ export const getFeeds = () => {
     try {
         const result = AsyncStorage.getItem(types.FEED_STORE)
         if (result !== nul) {
-            console.log('fetch success!', result)
+            console.log('get storage feeds success!', result)
             return JSON.parse(result)
         }
     } catch(error) {
-        console.log(error)
+        console.log('get storage feeds failed', error)
     }
 }
