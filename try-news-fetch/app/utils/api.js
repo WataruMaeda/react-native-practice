@@ -1,6 +1,6 @@
 import {newsUrls }from './config'
 
-export const getFeeds = () => {
+export const getTechFeeds = () => {
    return fetch(newsUrls.tech)
         .then((response) => response.json())
         .then((responseJson) => {

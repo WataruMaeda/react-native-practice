@@ -1,12 +1,12 @@
 import * as types from '../types'
-import { getFeeds } from '../../utils/api'
-import { saveFeeds } from '../../components/StorageManager'
+import { getTechFeeds } from '../../utils/api'
+import { saveTechFeeds } from '../../components/StorageManager'
 
-export const updateFeeds = () => {
+export const updateTechFeeds = () => {
     return dispatch => {
-         getFeeds().then(res => {
-            dispatch({type: types.UPDATE_FEEDS, payload: res})
-            saveFeeds(res)
+        getTechFeeds().then(response => {
+            dispatch({type: types.UPDATE_FEEDS, payload: response})
+            saveTechFeeds(response)
          })
     }
 }

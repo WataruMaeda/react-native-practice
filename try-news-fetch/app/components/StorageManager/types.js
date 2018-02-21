@@ -1,1 +1,1 @@
-export const FEED_STORE = '@FEED_STORE'
+export const TECH_FEED_STORE = '@TECH_FEED_STORE'

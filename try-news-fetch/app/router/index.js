@@ -12,7 +12,6 @@ const navigator = StackNavigator({
             headerStyle: { backgroundColor: '#34495e', },
             headerTitleStyle: { fontSize: 18, },
           }),
-  
     },
 })
 
@@ -20,9 +19,8 @@ export default TabNavigator({
     Tab: { 
         screen:  navigator,
         navigationOptions: {
-            tabBarIcon: <Icon name='ios-contact' />,
-            activeTintColor: 'red'
-        }
-          
+            title: 'Tech',
+            tabBarIcon: <Icon name='ios-contact'/>,
+            },
         },
 })
