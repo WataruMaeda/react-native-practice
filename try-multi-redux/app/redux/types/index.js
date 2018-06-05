@@ -1,3 +1,0 @@
-
-export const COUNTER_FIRST = '@COUNTER_FST'
-export const COUNTER_SECOND = '@COUNTER_SEC'
